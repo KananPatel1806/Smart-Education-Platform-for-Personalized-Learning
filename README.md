@@ -1,3 +1,6 @@
+A Smart Education Platform for Personalized Learning with admin, student, and teacher roles.
+
+
 Core Features
 
 --> User Authentication and Authorization
