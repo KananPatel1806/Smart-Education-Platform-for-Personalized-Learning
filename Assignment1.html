@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+.ul{
+    list-style-type: none;
+}
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+.main1{
+    color: #111;
+}
+body {
+            font-family: Arial, sans-serif;
+           
+            margin: 20px;
+           
+            
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            
+        }
+        .container {
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="navbar">
+        <li><a class="active" href="stuinfo.html">Home</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="Assignment1.html">Assignments</a></li>
+    </ul>
+    
+    <div class="container">
+        <h2 class="text-center mb-4">Submit Assignment</h2>
+        <form id="assignmentForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="assignmentName">Assignment Name</label>
+                <input type="text" class="form-control" id="assignmentName" name="assignmentName" required>
+            </div>
+            <div class="form-group">
+                <label for="assignmentFile">Select File (PDF, DOCX, etc.)</label>
+                <input type="file" class="form-control-file" id="assignmentFile" name="assignmentFile" accept=".pdf,.docx" required>
+            </div>
+            <button type="submit" class="btn btn-outline-primary"><a href="timetable.html">Submit Assignment</a></button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for handling form submission -->
+    <script>
+        // Function to handle form submission
+        $(document).ready(function() {
+            $('#assignmentForm').submit(function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Create FormData object to send file and other data
+                var formData = new FormData(this);
+
+                // Send form data to server (replace 'submit_assignment.php' with actual backend script)
+                $.ajax({
+                    url: 'submit_assignment.php', // Replace with your backend script URL
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        alert('Assignment submitted successfully!');
+                        // Clear form fields after successful submission if needed
+                        $('#assignmentForm')[0].reset();
+                    },
+                    error: function(error) {
+                        console.error('Error submitting assignment:', error);
+                        alert('Error submitting assignment. Please try again.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

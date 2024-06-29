@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+</head>
+<style>
+#navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+.ul{
+    list-style-type: none;
+}
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+.main1{
+    color: #111;
+}
+body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+           
+            color: #fff;
+        }
+</style>
+<body>
+    <ul id="navbar">
+        <li><a class="active" href="stuinfo.html">Home</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="Assignment1.html">Assignments</a></li>
+    </ul>
+    
+    <div class="container">
+        <h2 class="main1">Upcoming Events</h2>
+        <div id="events-list" class="list-group">
+            <!-- Events will be dynamically added here -->
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Example data (replace with your actual data or fetch from server)
+        var eventsData = [
+            { title: "Guest Lecture on Economics", date: "2024-07-05", location: "Room 202" },
+            { title: "Science Fair", date: "2024-07-12", location: "Auditorium" },
+            { title: "Math Olympiad Prelims", date: "2024-07-18", location: "Gymnasium" }
+        ];
+    
+        $(document).ready(function() {
+            var eventsList = $('#events-list');
+    
+            eventsData.forEach(function(event) {
+                var eventItem = `<a href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading">${event.title}</h4>
+                                    <p class="list-group-item-text">${event.date} - ${event.location}</p>
+                                </a>`;
+                eventsList.append(eventItem);
+            });
+        });
+    </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>

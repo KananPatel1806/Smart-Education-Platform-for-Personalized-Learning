@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    
+    }
+    .form-container {
+     
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <style>
+    .offcanvas {
+      visibility: hidden;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+    .offcanvas.show {
+      visibility: visible;
+      transform: translateX(0);
+    }
+    .offcanvas-backdrop {
+      display: none;
+    }
+    .box{
+      padding-left: 30px;
+      background-color: rgb(237, 237, 237);
+    }
+    .navbar {
+  overflow: hidden;
+  background-color: #333;
+  width:1600px;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+  </style>
+</head>
+<body>
+
+
+
+  
+  <div class=" container-fluid" >
+    <div class="row">
+        <div class="navbar">
+          <a href="index.html">Add New Student</a>
+          <a href="feesEntry.php">Add Fees</a>
+          <a href="con_read.php">Show Student List</a>
+          <a href="showFeesDetail.php">Show Fees List</a>
+          <a href="date_report.php">Show Date Report</a>
+        </div>
+      </div> 
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="form-container">
+      <h2 >Contact Form</h2>
+      <form action="con_insert.php" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="row form-group col-md-12">
+              <div><label for="file-multiple-input" class=" form-control-label"></label></div><br>
+              <div><input type="file" id="file-multiple-input" name="filephoto" multiple="" class="form-control-file"></div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" name="fname" placeholder="First Name" required>
+              <div class="invalid-feedback">
+                  Please enter your first name.
+              </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="middleName">Middle Name</label>
+            <input type="text" class="form-control" name="mname" placeholder="Middle Name" required>
+              <div class="invalid-feedback">
+                  Please enter your middle name.
+              </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+              <div class="invalid-feedback">
+                Please enter your last name.
+              </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" name="dob" required>
+              <div class="invalid-feedback">
+                Please enter your date of birth.
+              </div>
+          </div>
+         
+            <div class="form-group col-md-4">
+              <label for="totalfees">Total Fees</label>
+              <input type="text" class="form-control" name="totalfees" required>
+                <div class="invalid-feedback">
+                  Please enter your fee.
+                </div>
+            </div>
+           
+              <div class="form-group col-md-4">
+                <label for="course">Course</label>
+                <select class="form-select form-control" name="course" aria-label="Default select example">
+                  <option selected>Course </option>
+                  <option value="C/c++">C/C++</option>
+                  <option value="Python">Python</option>
+                  <option value="3">HTML/BOOSTRAP</option>
+                  <option value="4">Coding Jr.</option>
+                  <option value="5">CCC</option>
+                  <option value="6">Tally</option>
+                  <option value="7">PHP</option>
+                </select required>
+                  <div class="invalid-feedback">
+                    Please enter your course.
+                  </div>
+              </div>
+          </div>
+        
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Email" required>
+              <div class="invalid-feedback">
+                Please enter your email-id.
+              </div>
+          </div>
+        
+            <div class="form-group col-md-6">
+              <label for="mobile">Contact Number</label>
+              <input type="tel" class="form-control" name="phone" placeholder="Contact Number" required>
+                <div class="invalid-feedback">
+                  Please enter your contact number.
+                </div>
+            </div>
+          </div>
+        
+        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+      </form>
+  </div>
+</div>
+  
+  
+
+</body>
+</html>

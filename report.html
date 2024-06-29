@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        .ul {
+            list-style-type: none;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+        .main1 {
+            color: #111;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        canvas {
+            max-width: 600px; /* Adjust as per your layout */
+            margin: 20px auto; /* Center the canvas */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul id="navbar">
+        <li><a class="active" href="stuinfo.html">Home</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="Assignment1.html">Assignments</a></li>
+    </ul>
+    
+    <div class="container mt-5">
+        <h2 class="text-center">Your Child's Progress</h2>
+        <div class="card">
+            <div class="card-body">
+                <!-- Parent Information -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <p><strong>Email:</strong> john.doe@example.com</p>
+                        <p><strong>Child's Name:</strong> Jane Doe</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/11.jpeg" alt="">
+                    </div>
+                </div>
+
+                <!-- Child's Progress -->
+                <h5>Child's Progress</h5>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Marks Obtained</th>
+                            <th>Remarks</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example rows (replace with dynamic data) -->
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>85%</td>
+                            <td>Good</td>
+                            <td>June 1, 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>78%</td>
+                            <td>Needs Improvement</td>
+                            <td>June 5, 2024</td>
+                        </tr>
+                        <!-- End of example rows -->
+                    </tbody>
+                </table>
+
+                <!-- Update Notifications -->
+                <h5>Update Notifications</h5>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Parent-Teacher Meeting Scheduled</h6>
+                            <small>June 10, 2024</small>
+                        </div>
+                        <p class="mb-1">Discuss your child's progress with teachers.</p>
+                    </a>
+                    <!-- Add more update notifications dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Canvas for Chart -->
+        <canvas id="subjectMarksChart"></canvas>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Chart.js Configuration
+        var ctx = document.getElementById('subjectMarksChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Mathematics', 'Science', 'History'], // Example subjects
+                datasets: [{
+                    label: 'Marks Obtained',
+                    data: [85, 78, 92], // Example marks (replace with dynamic data)
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
